@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ubl2cc8yciq"]
+
+[ext_resource type="Texture2D" uid="uid://c06vlcuft37sb" path="res://addon/crosshair095.png" id="1_wfbs3"]
+[ext_resource type="Script" path="res://scripts/marker.gd" id="2_rlwqp"]
+
+[node name="marker" type="Sprite2D"]
+modulate = Color(100, 0, 0, 1)
+position = Vector2(1184, 1313)
+texture = ExtResource("1_wfbs3")
+script = ExtResource("2_rlwqp")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci31141qad0yv"]
+
+[ext_resource type="Texture2D" uid="uid://2u7qi0jcfec3" path="res://addon/Tiny Swords/Deco/05.png" id="1_1w236"]
+[ext_resource type="Script" path="res://scripts/itens/item.gd" id="2_xvk3u"]
+[ext_resource type="Script" path="res://scripts/itens/xp.gd" id="3_jrddo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7l0k7"]
+radius = 25.02
+
+[node name="xp_medium" type="Sprite2D"]
+modulate = Color(3, 6, 100, 1)
+position = Vector2(760, 893)
+texture = ExtResource("1_1w236")
+script = ExtResource("2_xvk3u")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7l0k7")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_jrddo")
+xp_value = 100.0

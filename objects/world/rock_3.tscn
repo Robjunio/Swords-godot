@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://cu5iy8ftsutyu"]
+
+[ext_resource type="Texture2D" uid="uid://ds12v8js1kfc6" path="res://addon/Tiny Swords/Terrain/Water/Rocks/Rocks_03.png" id="1_uvdcp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a5mn"]
+atlas = ExtResource("1_uvdcp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3taq"]
+atlas = ExtResource("1_uvdcp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud86g"]
+atlas = ExtResource("1_uvdcp")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ds3"]
+atlas = ExtResource("1_uvdcp")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgwuk"]
+atlas = ExtResource("1_uvdcp")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xanue"]
+atlas = ExtResource("1_uvdcp")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vltgj"]
+atlas = ExtResource("1_uvdcp")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04pms"]
+atlas = ExtResource("1_uvdcp")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjmx2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a5mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3taq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud86g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0ds3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgwuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xanue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vltgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04pms")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="rock_3" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_rjmx2")
+autoplay = "default"

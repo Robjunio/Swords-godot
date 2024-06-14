@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=3 uid="uid://gdn3cojqs78q"]
+
+[ext_resource type="Script" path="res://scripts/behaviours/follow_player.gd" id="1_o1uof"]
+[ext_resource type="Texture2D" uid="uid://idqd78fw001m" path="res://addon/Tiny Swords/Factions/Goblins/Troops/Torch/Yellow/Torch_Yellow.png" id="1_yfpl0"]
+[ext_resource type="PackedScene" uid="uid://c7bndd8k25j3h" path="res://objects/skull.tscn" id="2_qdbhy"]
+[ext_resource type="Script" path="res://scripts/behaviours/health_system.gd" id="3_eadr6"]
+[ext_resource type="Script" path="res://scripts/behaviours/attack_player.gd" id="5_n0oeu"]
+
+[sub_resource type="Animation" id="Animation_6s2jg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dwq1b"]
+resource_name = "attack_side"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackBehaviour")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_hit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_000oj"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ojivo"]
+resource_name = "run"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fcds1"]
+_data = {
+"RESET": SubResource("Animation_6s2jg"),
+"attack_side": SubResource("Animation_dwq1b"),
+"idle": SubResource("Animation_000oj"),
+"run": SubResource("Animation_ojivo")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j8yt3"]
+radius = 17.0
+height = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_syjpp"]
+radius = 86.0523
+
+[node name="goblin_fire" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(-4, 0)
+motion_mode = 1
+script = ExtResource("3_eadr6")
+max_health = 4.0
+death_prefab = ExtResource("2_qdbhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
+texture = ExtResource("1_yfpl0")
+hframes = 7
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fcds1")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("CapsuleShape2D_j8yt3")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -25)
+shape = SubResource("CircleShape2D_syjpp")
+debug_color = Color(0.858144, 0.322791, 0.446726, 0.42)
+
+[node name="FollowPlayer" type="Node" parent="."]
+script = ExtResource("1_o1uof")
+speed = 100.0
+
+[node name="AttackBehaviour" type="Node" parent="."]
+script = ExtResource("5_n0oeu")

@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7qg6smt6rw73"]
+
+[ext_resource type="Texture2D" uid="uid://moutnpx2m7um" path="res://addon/Tiny Swords/Terrain/Water/Rocks/Rocks_04.png" id="1_jc63m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkrw6"]
+atlas = ExtResource("1_jc63m")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0go6b"]
+atlas = ExtResource("1_jc63m")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qegeh"]
+atlas = ExtResource("1_jc63m")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7isaa"]
+atlas = ExtResource("1_jc63m")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_habkj"]
+atlas = ExtResource("1_jc63m")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78lqm"]
+atlas = ExtResource("1_jc63m")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu8e3"]
+atlas = ExtResource("1_jc63m")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auewb"]
+atlas = ExtResource("1_jc63m")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_drl33"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkrw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0go6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qegeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7isaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_habkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78lqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu8e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auewb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="rock_4" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_drl33")
+autoplay = "default"

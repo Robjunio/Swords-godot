@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbi4nknnr1fju"]
+
+[ext_resource type="Texture2D" uid="uid://dege0nu6qxwa5" path="res://addon/Tiny Swords/Resources/Trees/Tree.png" id="1_wnjo4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmfxd"]
+atlas = ExtResource("1_wnjo4")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3lbc"]
+atlas = ExtResource("1_wnjo4")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc1h0"]
+atlas = ExtResource("1_wnjo4")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28s5a"]
+atlas = ExtResource("1_wnjo4")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc03w"]
+atlas = ExtResource("1_wnjo4")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or004"]
+atlas = ExtResource("1_wnjo4")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgkm4"]
+atlas = ExtResource("1_wnjo4")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0t17d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmfxd")
+}],
+"loop": true,
+"name": &"chopped",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3lbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc1h0")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28s5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc03w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or004")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgkm4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thpy0"]
+radius = 23.0868
+
+[node name="Tree" type="AnimatedSprite2D"]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_0t17d")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 70)
+shape = SubResource("CircleShape2D_thpy0")

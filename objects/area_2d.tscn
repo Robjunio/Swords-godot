@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://brkas7pf5jt40"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1148, 1089, 1153, 1282, 631, 1279, 634, 1461, 1159, 1470, 1153, 1151, 1598, 1156, 1596, 1534, 2133, 1536, 2117, 1158, 2220, 1157, 2228, 1294, 2293, 1293, 2302, 1723, 1800, 1725, 1803, 1657, 1540, 1660, 1543, 1591, 267, 1596, 265, 1092)
